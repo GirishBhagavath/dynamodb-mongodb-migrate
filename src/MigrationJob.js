@@ -67,9 +67,9 @@ class MigrationJob {
                         .map(ctx.mapperFunction)
                         .value();
                     if (targetItems.length > 0) {
-                        let results = await ctx.mongoDBDAO.intertOrUpdateItems(targetItems);
-                        console.log('Modified mongodb doc count : ', results.modifiedCount);
-                        console.log('Inserted mongodb doc count : ', results.upsertedCount);
+                        let results = ctx.mongoDBDAO.intertOrUpdateItems(targetItems);
+                        console.log('Modified mongodb doc count : ', results);
+                        console.log('Inserted mongodb doc count : ', results);
                     }
                     if (sourceItemResponse && sourceItemResponse.LastEvaluatedKey) {
                         lastEvalKey = sourceItemResponse.LastEvaluatedKey;
